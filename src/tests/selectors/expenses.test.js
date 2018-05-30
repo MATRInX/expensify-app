@@ -31,7 +31,7 @@ test('should sort by date', () => {
 
 test('should sort by amount', () => {
     const result = selectExpenses(expenses, {...filters, sortBy: 'amount'});
-    expect(result).toEqual([expenses[1], expenses[0], expenses[2]]);
+    expect(result).toEqual([expenses[1], expenses[2], expenses[0]]);
 });
 
 // test('should sort by amount and by text filter value', () => {

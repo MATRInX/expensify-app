@@ -11,7 +11,7 @@ exports[`should render ExpenseLitsItem with data 1`] = `
     </h3>
   </Link>
   <p>
-    950 $
+    1.95 $
     -
     1st January, 1970
   </p>
