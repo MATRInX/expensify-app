@@ -5,7 +5,4 @@ Info3.txt
 Info4-git.txt
 Info-server.txt
 Archive/
-public/bundle.js
-public/bundle.js.map
-public/styles.css
-public/styles.css.map
+public/dist/
