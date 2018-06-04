@@ -2,3 +2,5 @@ node_modules/
 .info/
 Archive/
 public/dist/
+.env.development
+.env.test
