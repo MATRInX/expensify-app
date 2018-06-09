@@ -31,6 +31,9 @@ test('should remove expense from firebase', (done) => {
             type: 'REMOVE_EXPENSE',
             id: '2'
         });
+        return database.ref(`expenses/2`).once('value')
+    }).then( (snapshot) => {
+        expect(snapshot.val()).toBeFalsy();//toBe(null);
         done();
     });
 });
@@ -49,6 +52,12 @@ test('should setup edit expense action object', () => {
 
 test('should edit expense on firebase', (done) => {
     const store = createMockStore();
+    const expensesData = {
+        description: expenses[0].description,
+        note: expenses[0].note,
+        amount: expenses[0].amount,
+        createdAt: expenses[0].createdAt
+    }
     const updates = {
         description: 'new updated description',
         amount: 150000
@@ -59,8 +68,15 @@ test('should edit expense on firebase', (done) => {
             type: 'EDIT_EXPENSE',
             id: expenses[0].id,
             updates
+        }); 
+        
+        return database.ref(`expenses/${expenses[0].id}`).once('value')        
+    }).then((snapshot) => {
+        expect(snapshot.val()).toEqual({
+            ...expensesData,
+            ...updates
         });
-        done();
+        done(); 
     });
 });
 
