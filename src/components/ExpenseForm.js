@@ -86,7 +86,10 @@ class ExpenseForm extends React.Component{
                         onChange={this.onNoteChange}
                     >
                     </textarea>
-                    <button>Add Expense</button>
+                    {this.props.type ==='edit' ? 
+                    <button>Save Expense</button> :
+                    <button>Add Expense</button>}
+                    
                 </form>
             </div>
         );
